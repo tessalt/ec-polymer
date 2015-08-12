@@ -1,0 +1,28 @@
+<dom-module id="echo-list">
+  <style>
+    :host {
+      display: block;
+    }
+
+  </style>
+  <template>
+    <template is="dom-repeat" items="{{comments}}">
+      <p>{{item.author}}</p>
+      <p>{{item.email}}</p>
+      <p>{{item.comment}}</p>
+    </template>
+  </template>
+
+  <script>
+    (function() {
+      Polymer({
+        is: 'echo-list',
+        properties: {
+        },
+        handleSubmit: function () {
+        }
+      });
+    })();
+  </script>
+
+</dom-module>

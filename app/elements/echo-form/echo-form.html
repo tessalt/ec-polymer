@@ -1,0 +1,36 @@
+<dom-module id="echo-form">
+  <style>
+    :host {
+      display: block;
+    }
+
+  </style>
+  <template>
+    <form id="form" is="iron-form" method="get" action="/" on-iron-form-submit="handleSubmit">
+      <input is="iron-input" name="author" required>
+      <input is="iron-input" name="email" required>
+      <textarea name="comment" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </template>
+
+  <script>
+    (function() {
+      Polymer({
+        is: 'echo-form',
+        properties: {
+          data: {
+            type: Object,
+            notify: true,
+            reflectToAttribute: true
+          }
+        },
+        handleSubmit: function () {
+          this.data = document.getElementById('form').serialize();
+          this.fire('echo-form-submit');
+        }
+      });
+    })();
+  </script>
+
+</dom-module>

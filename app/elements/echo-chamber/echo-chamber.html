@@ -1,0 +1,34 @@
+<dom-module id="echo-chamber">
+  <style>
+    :host {
+      display: block;
+    }
+
+  </style>
+  <template>
+
+    <echo-form data="{{comment}}" on-echo-form-submit="handleSubmit"></echo-form>
+    <echo-list comments="{{comments}}"></echo-list>
+  </template>
+
+  <script>
+    (function() {
+      Polymer({
+        is: 'echo-chamber',
+        properties: {
+          comments: {
+            type: Array,
+            value: function () {
+              return [];
+            },
+            notify: true
+          }
+        },
+        handleSubmit: function () {
+          this.push('comments', this.comment);
+        }
+      });
+    })();
+  </script>
+
+</dom-module>
