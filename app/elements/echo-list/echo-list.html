@@ -7,8 +7,7 @@
   </style>
   <template>
     <template is="dom-repeat" items="{{comments}}">
-      <p>{{item.author}}</p>
-      <p>{{item.email}}</p>
+      <echo-author name="{{item.author}}" email="{{item.email}}"></echo-author>
       <p>{{item.comment}}</p>
     </template>
   </template>
@@ -16,11 +15,7 @@
   <script>
     (function() {
       Polymer({
-        is: 'echo-list',
-        properties: {
-        },
-        handleSubmit: function () {
-        }
+        is: 'echo-list'
       });
     })();
   </script>
